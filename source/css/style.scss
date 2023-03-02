@@ -1,0 +1,245 @@
+// out: ./styl.css, compress: true, sourceMap: true
+@import 'normalize', 'rem', 'font', 'color', 'mixin', 'default';
+
+/* basic */
+$min-width: 1200px;
+$img-url: '../images';
+
+// * {
+//   @include ani(0.3s);
+// }
+
+html {
+  min-width: $min-width;
+  max-width: 100%;
+  font-size: 14px;
+  height: -webkit-fill-available;
+}
+
+
+@media (min-width: 1900px) {
+	html {
+		font-size: 28px;
+	}
+}
+
+
+
+html,
+body {
+  font-family: $myfont, 'Malgun Gothic', 'apple sd gothic neo', sans-serif;
+  background:#222C40;
+  color:$text-color;
+
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
+  .container {
+    @include container(100%);
+    text-align: left;
+    vertical-align: top;
+    @include rem(padding, 0 15px);
+  }
+
+  /* header */
+  header {
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    width:100%;
+    border-bottom:1px solid rgba(112,112,112,.3);
+    background:rgba(0,0,0,.2);
+		@include inner-shadow($x:0,$y: -23px, $blur: 15px, $spread: 0, $alpha:.3);
+    @include rem(height, 50px);
+
+    button.all-menu {
+      position:absolute;
+      left:0;
+      top:0;
+      border:none;
+      background:#000;
+      @include rem(height, 49px);
+      @include rem(width, 69px);
+      @include rem(padding, 0 10px 0 0);
+      border-radius:0 100px 100px 0;
+      font-size:0;
+
+      i {
+        color:#fff;
+        @include rem(font-size, 32px);
+      }
+    }
+
+    h1 {
+      @include rem(margin, 12px 0 0 90px);
+      @include rem(font-size, 20px);
+      font-weight:900;
+    }
+
+    span {
+      display:block;
+      position:absolute;
+      @include rem(right, 20px);
+      @include rem(top, 10px);
+      @include rem(width, 160px);
+      @include rem(height, 26px);
+      background:url(../images/logo-jeju.svg) no-repeat center / 100% auto;
+      font-size:0;
+    }
+
+  }
+
+
+
+
+  div#content {
+    height:calc(100vh - rem(50px));
+    display:flex;
+
+    nav {
+      position:relative;
+      @include ani();
+      width:0px;
+      flex-shrink: 0;
+      overflow:hidden;
+      background:#141A26;
+      padding:0;
+
+      &.on {
+        @include rem(width, 200px);
+        @include rem(padding, 0 10px);
+      }
+
+      ul.menu {
+        list-style:none;
+        margin:0;
+        padding:0;
+        @include rem(width, 180px);
+
+        &>li {
+          border-bottom:1px solid rgba(255,255,255,.3);
+
+          h2 {
+            margin:0;
+
+            a {
+              display:block;
+              position:relative;
+              @include rem(font-size, 16px);
+              @include rem(padding, 10px 0);
+              font-weight:600;
+
+              &:hover {
+                color:#61C5EB;
+              }
+
+              i {
+                position:absolute;
+                right:0;
+
+              }
+            }
+
+            &.on {
+              a {
+                color:#61C5EB;
+
+                i {
+                  transform:rotate(180deg);
+                }
+              }
+            }
+          }
+
+          ul {
+            height:0;
+            overflow:hidden;
+            list-style:none;
+            margin:0;
+            padding:0;
+            @include ani();
+
+            li {
+              a {
+                display:block;
+                @include rem(font-size, 14px);
+                @include rem(margin-bottom, 10px);
+                @include rem(padding, 0 10px);
+
+                &.on,
+                &:hover {
+                  color:#61C5EB;
+                  
+                }
+                
+              }
+            }
+          }
+
+          h2.on + ul {
+            height:auto;
+            margin:10px 0 20px;
+          }
+
+        }
+      }
+
+      div.button-set {
+        position:absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        display:flex;
+
+        button {
+          @include rem(height, 50px);
+          flex-grow:1;
+          border:none;
+          background:#183348;
+          font-size:0;
+
+          &.home {
+            margin:0 1px;
+          }
+
+          i {
+            @include rem(font-size, 24px);
+
+          }
+        }
+      }
+    }
+
+    div.contents {
+      flex-grow: 1;
+
+      div.sub-tabs {
+        @include rem(padding, 10px 20px);
+        border-bottom:1px solid #707070;
+        font-size:0;
+
+        a {
+          display:inline-block;
+          @include rem(font-size, 14px);
+          font-weight:600;
+          background:#141A26;
+          @include rem(border-radius, 10px);
+          @include rem(padding, 10px 20px);
+          @include rem(margin, 0 10px 0 0);
+
+        }
+      }
+
+      div.contents-box {
+        @include rem(padding, 20px);
+
+      }
+    }
+  }
+
+
+
+}
