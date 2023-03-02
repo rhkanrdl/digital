@@ -1858,7 +1858,7 @@ html {
   height: -webkit-fill-available;
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1920px) {
   html {
     font-size: 28px;
   }
