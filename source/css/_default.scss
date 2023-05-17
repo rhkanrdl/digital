@@ -851,6 +851,50 @@ button {
 	}
 }
 
+/* 공지팝업 */
+.img_pop {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	right:0;
+	bottom:0;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align:center;
+	padding:4vh 0;
+
+	&.on {
+		display: block;
+	}
+
+	button {
+		color:#fff;
+		background:none;
+		border:none;
+		font-size:0;
+		background:rgba(255,255,255,.2);
+		width:rem(40px);
+		height:rem(40px);
+		border-radius:50%;
+
+		i {
+			font-size:rem(30px);
+		}
+
+	}
+
+	p {
+
+		img {
+			width:600px;
+		}
+	}
+
+}
+
 
 
 article.layer-popup {
